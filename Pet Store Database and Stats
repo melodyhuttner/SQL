@@ -1,0 +1,39 @@
+--Create a pet store database.
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, department TEXT, popularity INTEGER);
+
+INSERT INTO store VALUES (1, "lamb chop", 9, 5, "dog", 34);
+INSERT INTO store VALUES (2, "kong", 12, 6, "dog", 55);
+INSERT INTO store VALUES (3, "flying disc", 7, 3, "dog", 12);
+INSERT INTO store VALUES (4, "bone", 2, 6, "dog", 40);
+INSERT INTO store VALUES (5, "mouse", 3, 3, "cat", 78);
+INSERT INTO store VALUES (6, "catnip", 5, 4, "cat", 100);
+INSERT INTO store VALUES (7, "dry dog food", 30, 5, "dog", 90);
+INSERT INTO store VALUES (8, "wet dog food", 15, 10, "dog", 23);
+INSERT INTO store VALUES (9, "dry cat food", 20, 3, "cat", 15);
+INSERT INTO store VALUES (10, "wet cat food", 10, 2, "cat", 22);
+INSERT INTO store VALUES (11, "feather wand", 10, 4, "cat", 77);
+INSERT INTO store VALUES (12, "food puzzle", 10, 3, "dog", 89);
+INSERT INTO store VALUES (13, "cat treats", 4, 20, "cat", 100);
+INSERT INTO store VALUES (14, "scratching post", 60, 25, "cat", 56);
+INSERT INTO store VALUES (15, "ball", 4, 22, "dog", 28);
+
+--Display the database ordered by price.
+SELECT * 
+FROM store 
+ORDER BY price asc;
+
+--What is the number of items in the dog department?
+SELECT SUM(quantity)
+FROM store
+WHERE department='dog';
+
+--What is the average price of items in the cat department?
+SELECT AVG(price)
+FROM store
+WHERE department='cat';
+
+--What is the average price of items in the dog department?
+SELECT AVG(price)
+FROM store
+WHERE department='dog'
