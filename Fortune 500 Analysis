@@ -68,23 +68,34 @@ WHEN paid_time_off_days >= 14 THEN "2+ weeks PTO"
 ELSE "less than 2 weeks PTO"
 END AS "Weeks of Paid Time Off"
 FROM fortune_companies
-ORDER BY paid_time_off_days asc;
+ORDER BY paid_time_off_days asc
+;
 
 #Which companies have more than 10,000 employees?
 SELECT employees, company_name
 FROM fortune_companies
 GROUP BY company_name
 HAVING employees>=10000
-ORDER BY employees;
+ORDER BY employees
+;
 
 #Which companies have healthcare benefits, more than 14 days of paid time off, and more than 12 weeks of maternity leave?
 SELECT *
 FROM fortune_companies
 WHERE healthcare_benefits="1"
 AND paid_time_off_days>=14
-AND maternity_leave_weeks>=12;
+AND maternity_leave_weeks>=12
+;
 
 #What is the average employee tenure in each industry?
 SELECT industry, ROUND (AVG(avg_employee_tenure),1)
 FROM fortune_companies
-GROUP BY industry;
+GROUP BY industry
+;
+
+#Which companies have healthcare benefits and less than 100,000 employees?
+SELECT *
+FROM fortune_companies
+WHERE healthcare_benefits=1
+AND employees<100000
+;
